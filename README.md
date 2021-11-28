@@ -13,5 +13,5 @@
 - If you just want to run the app just download the 'helikopter.exe' then run it and all the required files will be re-created or re-downloaded if missing.
 
 ## Keyboard Controls 
-- Press [Space] to open up the Helikopter Menu <br />From there you can press [Y] to continue flying the helikopter or press [N] to stop flying the helikopter
+- Press [Space] to open up the Helikopter Menu <br />From there you can press [Y] to continue flying the helikopter<br />or press [N] to stop flying the helikopter
 - Press [Esc] to Exit Immediately
