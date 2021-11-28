@@ -2,12 +2,15 @@
 //Helikopter by Jerwin D. Dela Cruz
 ////////////////////////////////////////////////////////////////////////
 //
+// [WARNING] DO NOT CLOSE the Console App Manually, just do the following:
+// PRESS 'ESC' to Exit Immediately
 // PRESS 'SPACEBAR' for the Helikopter Menu
 // Then PRESS 'Y' if you want to continue flying the Helikopter
 // Or PRESS 'N' if you want to stop flying the Helikopter
 //
 ////////////////////////////////////////////////////////////////////////
 
+#define _WIN32_WINNT 0x0500
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
@@ -28,6 +31,7 @@ void colorSet(int tint);
 void getDesktopResolution(int& horizontal, int& vertical);
 void displayHelikopter(bool helikopterFacingLeft, string tMotorTop, string tMotorBot);
 void stopHelikopterMusic();
+void disableTitleBarButtons(HWND hwnd);
 bool DoesFileExist(const std::string& name);
 bool exitHandler(DWORD event);
 string stopHelikopterFile();
@@ -64,9 +68,13 @@ int main(){
 		MoveWindow(hwnd, 0, 0, appWidthSize, appHeightSize, TRUE); 
 		ShowScrollBar(GetConsoleWindow(), SB_VERT, 0);
 		SetConsoleCtrlHandler((PHANDLER_ROUTINE)(exitHandler), TRUE);
+		disableTitleBarButtons(hwnd);
 	}
 	/////////////////// 
+
+
 	
+	MoveWindow(hwnd, 50, 50, appWidthSize, appHeightSize, TRUE); 
 	
 	
 	//////////////////////////////////////
@@ -74,8 +82,8 @@ int main(){
 	//////////////////////////////////////
 	 /* Helikopter Postion Holder (Adjust the xPosition and yPosition 
 	 for the starting point of the Helikopter) */
-	 int xPosition = 10;
-	 int yPosition = 10;
+	 int xPosition = 50;
+	 int yPosition = 50;
 	
 	 /* Helikopter Hop Speed (Adjust the xSpeed and ySpeed 
 	 for the Movement Speed) */
@@ -141,9 +149,7 @@ int main(){
 	Sleep(700);
 	
 	system("cls");
-	MoveWindow(hwnd, 0, 0, appWidthSize, appHeightSize, TRUE); 
-	
-	
+
 	//START Helikopter
 	
 	if(enableMusic == true){
@@ -392,6 +398,19 @@ int main(){
 		
 		 if(GetAsyncKeyState(VK_SPACE) != 0){
 		 	menuExit();
+		 }
+		 if(GetAsyncKeyState(VK_ESCAPE) != 0){
+			system("cls");
+			colorSet(15);
+			HWND hwnd = GetConsoleWindow();
+			MoveWindow(hwnd, 50, 50, 500, 80, TRUE); 
+		 	
+			HWND hProgman = FindWindowW (L"Progman", L"Program Manager");
+			HWND hChild = GetWindow (hProgman, GW_CHILD);
+			ShowWindow (hChild, SW_SHOW);
+			
+			stopHelikopterMusic();
+			exit(0);
 		 }	
 		 
 	}
@@ -553,17 +572,21 @@ bool exitHandler(DWORD event)
 {
     if (event == CTRL_CLOSE_EVENT) {
         exitDone = true;
-        
-        system("cls");
-		HWND hProgman = FindWindowW (L"Progman", L"Program Manager");
-		HWND hChild = GetWindow (hProgman, GW_CHILD);
-		ShowWindow (hChild, SW_SHOW);
-		
         stopHelikopterMusic();
-        
         return TRUE;
     }
     return FALSE;
+}
+
+//DISABLE APP TITLEBAR BUTTONS
+void disableTitleBarButtons(HWND hwnd)
+{
+	SetWindowLong(hwnd, GWL_STYLE,
+    GetWindowLong(hwnd, GWL_STYLE) & ~WS_MINIMIZEBOX);
+    SetWindowLong(hwnd, GWL_STYLE,
+	GetWindowLong(hwnd, GWL_STYLE) & ~WS_MAXIMIZEBOX);        
+	EnableMenuItem(GetSystemMenu(hwnd, FALSE), SC_CLOSE,
+    MF_BYCOMMAND | MF_DISABLED | MF_GRAYED);
 }
 
 //CHECK FILE
