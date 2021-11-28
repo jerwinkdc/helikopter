@@ -525,6 +525,10 @@ bool exitHandler(DWORD event)
 {
     if (event == CTRL_CLOSE_EVENT) {
         exitDone = true;
+		HWND hProgman = FindWindowW (L"Progman", L"Program Manager");
+		HWND hChild = GetWindow (hProgman, GW_CHILD);
+		ShowWindow (hChild, SW_SHOW);
+
         stopHelikopterMusic();
         return TRUE;
     }
