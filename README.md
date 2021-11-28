@@ -1,5 +1,6 @@
 # Helikopter 
-(Written in C++ with VBScript Integration) by Jerwin D. Dela Cruz
+(Written in C++ with VBScript Integration) by Jerwin D. Dela Cruz <br />
+(For Windows users only!) <br />
 
 ## Features
 - A helicopter that flies around your desktop when executed.
