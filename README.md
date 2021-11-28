@@ -14,4 +14,4 @@
 
 ## Keyboard Controls 
 - Press [Space] to open up the Helikopter Menu <br />From there you can press [Y] to continue flying the helikopter<br />or press [N] to stop flying the helikopter
-- Press [Esc] to Exit Immediately
+- Press [Esc] to exit Immediately
