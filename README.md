@@ -11,8 +11,9 @@
 ## Execution 
 - If you want to compile the 'helikopter.cpp' code, use Dev C++ but if you want to compile it in other IDE you can test it also.
 - If you just want to run the app just download the 'helikopter.exe' then run it and all the required files will be re-created or re-downloaded if missing.
+- Incase your desktop apps are gone, just run the app 'helikopter.exe' again then properly exit the app.
 
-:warning: **Warning: Do not close the console app manually, chances are your desktop icons might not show up.**
+:warning: **Warning: Do not close the console app manually, chances are your desktop apps might not show up.**
 
 ## Keyboard Controls 
 - Press [Space] to open up the Helikopter Menu <br />From there you can press [Y] to continue flying the helikopter<br />or press [N] to stop flying the helikopter
