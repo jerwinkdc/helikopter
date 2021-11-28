@@ -12,6 +12,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <ctime>
+#include <algorithm>
 #include <fstream>
 
 using namespace std;
@@ -83,7 +84,7 @@ int main(){
 	
 	 /* Helikopter Delay Speed (Adjust the FPS
 	 for the imaginary frame rate speed of the Helikopter) */
-	 int FPS = 60;
+	 int FPS = 120;
 	 int xySpeed = 1000/FPS;
 	//////////////////////////////////////
 	
@@ -116,8 +117,14 @@ int main(){
 	bool clrChangeA = true, clrChangeB = true, clrChangeC = true, clrChangeD = true;
 	string tMotorTop;
 	string tMotorBot;
+
+	int colorVal[] = {2,3,4,6,9,10,11,12,13,14};
+	int colorValSize = sizeof(colorVal)/sizeof(colorVal[0]);
+	int colorCTR = 0;
+	int colorSetting = true;
+	int colorTemp[colorValSize];
 	
-		cout<<"Helikopter -> Programmer(Jerwin D. Dela Cruz)"<<endl;
+	cout<<"Helikopter -> Programmer(Jerwin D. Dela Cruz)"<<endl;
 	cout<<"Helikopter -> Resolution(";
 	cout<<screenWidth<<" x "<<screenHeight<<") FPS("<<FPS<<")"<<endl;
 	cout<<"Helikopter -> Start("<<xPosition<<","<<yPosition<<") -> Hop("<<xSpeed<<","<<ySpeed<<")"<<endl;
@@ -185,7 +192,7 @@ int main(){
 		
 		
 	}
-	
+
 	while(true){
 	
 		hideCursor(true);
@@ -264,13 +271,33 @@ int main(){
 		
 		//cout<<"Color: "<<colorCon<<" ";
 		////////////////////////////////////////
-		srand(time(0));
 		if(enableColorBounce == true){
 			if(colorCon == "no color"){
 				colorSync = colorHolder;
 			}
 			else{
-				colorSync = rand() % 15 + 1;
+				
+					if(colorSetting == true){
+						
+						colorTemp[colorValSize];
+						copy(&colorVal[0], &colorVal[colorValSize], &colorTemp[0]);
+						srand(time(NULL));
+						
+						random_shuffle(&colorTemp[0], &colorTemp[colorValSize]); 
+			
+						colorSetting = false;
+					}
+					
+						if(colorCTR < colorValSize){
+							colorSync = colorTemp[colorCTR];
+							//cout<<colorSync;
+							colorCTR++;
+						}
+						else{
+							colorCTR = 0;
+							colorSetting = true;
+						}
+
 			}
 		}
 		else{
