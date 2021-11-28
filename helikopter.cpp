@@ -414,16 +414,17 @@ void displayHelikopter(bool helikopterFacingLeft, string tMotorTop, string tMoto
 	}
 }
 
-
 //MENU EXIT
 void menuExit(){
+	
+	system("cls");
 	HWND hwnd = GetConsoleWindow();
 	MoveWindow(hwnd, 50, 50, 500, 80, TRUE); 
 	
 	HWND hProgman = FindWindowW (L"Progman", L"Program Manager");
 	HWND hChild = GetWindow (hProgman, GW_CHILD);
 	ShowWindow (hChild, SW_SHOW);
-	
+
 	stopHelikopterMusic();
 
 	colorSet(15);
@@ -552,11 +553,14 @@ bool exitHandler(DWORD event)
 {
     if (event == CTRL_CLOSE_EVENT) {
         exitDone = true;
+        
+        system("cls");
 		HWND hProgman = FindWindowW (L"Progman", L"Program Manager");
 		HWND hChild = GetWindow (hProgman, GW_CHILD);
 		ShowWindow (hChild, SW_SHOW);
-
+		
         stopHelikopterMusic();
+        
         return TRUE;
     }
     return FALSE;
