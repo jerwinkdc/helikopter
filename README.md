@@ -1,4 +1,5 @@
-# Helikopter (Written in C++ with VBS Integration)
+# Helikopter 
+(Written in C++ with VBS Integration)
 by Jerwin D. Dela Cruz
 
 ## Features
