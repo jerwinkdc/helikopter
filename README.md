@@ -10,7 +10,7 @@
 
 ## Requirements
 - Make sure to run the app only on **Windows**.
-- Install **Windows Media Player**<br/>
+- Make sure **Windows Media Player** is installed<br/>
   For **Windows 10**:<br/>
   Settings > Apps > Optional Features > Add a Feature<br/>
   Select Windows Media Player then click install<br/>
