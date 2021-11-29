@@ -8,6 +8,16 @@
 - Music is also included for the jam.
 - There are some special variables that can be modified in the source code.
 
+## Requirements
+- Make sure to run it only on Windows.
+- Install **Windows Media Player**<br/>
+  For **Windows 10**:<br/>
+  Settings > Apps > Optional Features > Add a Feature<br/>
+  Select Windows Media Player then click install<br/>
+  Wait for it to install.<br/>
+  For more information: Vist this <a href="https://support.microsoft.com/en-us/windows/get-windows-media-player-81718e0d-cfce-25b1-aee3-94596b658287" target="_blank">site</a><br/>
+  
+  
 ## Execution 
 - If you want to compile the 'helikopter.cpp' code, use Dev C++ but if you want to compile it in other IDE you can test it also.
 - If you just want to run the app just download the 'helikopter.exe' then run it and all the required files will be re-created or re-downloaded if missing.
