@@ -9,7 +9,7 @@
 - There are some special variables that can be modified in the source code.
 
 ## Requirements
-- Make sure to run it only on Windows.
+- Make sure to run the app only on **Windows**.
 - Install **Windows Media Player**<br/>
   For **Windows 10**:<br/>
   Settings > Apps > Optional Features > Add a Feature<br/>
