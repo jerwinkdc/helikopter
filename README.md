@@ -15,7 +15,7 @@
   Settings > Apps > Optional Features > Add a Feature<br/>
   Select Windows Media Player then click install<br/>
   Wait for it to install.<br/>
-  For **more information**: Vist this (site)[https://bit.ly/wmp-support]<br/>
+  For **more information**: Vist this [site](https://bit.ly/wmp-support)<br/>
   
   
 ## Execution 
